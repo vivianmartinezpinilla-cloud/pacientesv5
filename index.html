@@ -19,7 +19,7 @@
   --ease-out:cubic-bezier(0,0,.2,1);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:hidden}
 body{font-family:'Inter',sans-serif;background:var(--off);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 a{text-decoration:none;color:inherit}
 button{cursor:pointer;border:none;font-family:inherit;background:none}
@@ -146,7 +146,7 @@ button{cursor:pointer;border:none;font-family:inherit;background:none}
 
 /* ── Search ── */
 .search-wrap{
-  position:relative;max-width:520px;
+  position:relative;max-width:520px;width:100%;
   margin-inline:auto;
   opacity:0;animation:fadeUp .65s var(--ease) .7s forwards;
 }
@@ -177,7 +177,7 @@ button{cursor:pointer;border:none;font-family:inherit;background:none}
 /* ══════════════════════════════════════
    MAIN
 ══════════════════════════════════════ */
-main{padding:clamp(2rem,4vw,3.5rem) var(--pad) clamp(3rem,7vw,7rem)}
+main{padding:clamp(2rem,4vw,3.5rem) var(--pad) clamp(3rem,7vw,7rem);overflow-x:hidden}
 
 /* ── Mobile tabs ── */
 .tabs{
@@ -239,10 +239,11 @@ main{padding:clamp(2rem,4vw,3.5rem) var(--pad) clamp(3rem,7vw,7rem)}
   letter-spacing:-.02em;line-height:1.2;
 }
 .col-count{font-size:.65rem;font-weight:600;color:var(--muted);margin-top:.2rem;letter-spacing:.02em}
-.col-c{display:flex;flex-direction:column;}
+.col-c{display:flex;flex-direction:column;min-width:0;}
 
 /* ── Card list ── */
 .card-list{
+  overflow:hidden;
   border:1px solid var(--border);
   border-top:none;border-radius:0 0 10px 10px;
   overflow:hidden;background:#fff;
@@ -528,7 +529,7 @@ footer::before{
 ══════════════════════════════════════ */
 @media(max-width:720px){
   .tabs{display:flex}
-  .cols{grid-template-columns:1fr;gap:0}
+  .cols{grid-template-columns:1fr;gap:0;width:100%}
   .col[data-tab]{display:none}
   .col[data-tab].tab-active{display:block}
   .col-head-c{flex-direction:row;text-align:left}
